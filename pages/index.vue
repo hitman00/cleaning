@@ -1,0 +1,40 @@
+<template>
+  <div :class="$style.main">
+    <Header />
+    <Slider />
+    <Company :class="$style.max_size" />
+    <Testimonials />
+    <Transparent />
+    <Footer />
+  </div>
+</template>
+
+<script>
+import Header from '@/components/Header/Header.vue'
+import Slider from '@/components/Slider_Clean/Slider_Clean.vue'
+import Company from '@/components/Clean_Company/Company.vue'
+import Testimonials from '@/components/Testimonials/Testimonials.vue'
+import Transparent from '@/components/Transparent/Transparent.vue'
+import Footer from '@/components/Footer/Footer.vue'
+export default {
+  components: {
+    Header,
+    Slider,
+    Company,
+    Testimonials,
+    Transparent,
+    Footer,
+  },
+}
+</script>
+
+<style lang="scss" module>
+.main {
+  width: 100%;
+}
+
+.max_size {
+  max-width: 1230px;
+  margin: 0 auto;
+}
+</style>
