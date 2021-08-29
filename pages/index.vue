@@ -2,7 +2,7 @@
   <div :class="$style.main">
     <Header />
     <Slider />
-    <Company :class="$style.max_size" />
+    <Company />
     <Testimonials />
     <Transparent />
     <Footer />
@@ -31,10 +31,5 @@ export default {
 <style lang="scss" module>
 .main {
   width: 100%;
-}
-
-.max_size {
-  max-width: 1230px;
-  margin: 0 auto;
 }
 </style>

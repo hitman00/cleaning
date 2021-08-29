@@ -66,6 +66,11 @@ export default {
 </script>
 
 <style lang="scss" module>
+.company_main {
+  max-width: 1230px;
+  margin: 0 auto;
+}
+
 .tag {
   margin: 10% auto 2%;
   border: 1px solid #f2faf6;

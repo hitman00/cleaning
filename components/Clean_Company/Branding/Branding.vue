@@ -106,6 +106,7 @@ export default {
 }
 
 .part2_image {
+  display: none;
   position: relative;
   margin: 0 auto 10%;
   width: 70%;
@@ -157,6 +158,10 @@ export default {
 
   .images {
     display: none;
+  }
+
+  .part2_image {
+    display: block;
   }
 
   .fix_size {
