@@ -102,7 +102,7 @@ export default {
   background: #31ad61;
   color: #fff;
   padding: 2%;
-  max-width: max-content;
+  display: inline-block;
   margin-top: 10%;
   cursor: pointer;
   border-radius: 5px;
@@ -141,6 +141,20 @@ export default {
 
   .customer_btn {
     margin: 5% auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .customer_title {
+    font-size: 16px;
+  }
+
+  .customer_description {
+    font-size: 13px;
+  }
+
+  .customer_btn {
+    font-size: 12px;
   }
 }
 </style>

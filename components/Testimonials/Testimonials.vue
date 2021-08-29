@@ -92,7 +92,7 @@ export default {
 }
 .boxs {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -169,6 +169,21 @@ export default {
   .comment_box {
     width: 70%;
     margin-bottom: 3%;
+  }
+}
+
+@media (max-width: 450px) {
+  .testimonials_tag,
+  .comment_box {
+    font-size: 12px;
+  }
+
+  .testimonials_title {
+    font-size: 18px;
+  }
+
+  .avrage_star {
+    font-size: 14px;
   }
 }
 </style>

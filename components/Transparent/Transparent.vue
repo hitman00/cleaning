@@ -49,7 +49,7 @@ export default {
   background: #fff;
   border-radius: 5px;
   color: #31ad61;
-  max-width: max-content;
+  display: inline-block;
   margin: 0 auto;
   padding: 1%;
   cursor: pointer;
@@ -66,6 +66,17 @@ export default {
 
   .description {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 450px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .description,
+  .btn {
+    font-size: 13px;
   }
 }
 </style>

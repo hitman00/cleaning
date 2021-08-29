@@ -143,5 +143,20 @@ export default {}
   .about_title {
     margin-right: 0%;
   }
+
+  .about_description {
+    margin: 10% auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .about_title {
+    font-size: 18px;
+  }
+
+  .about_description,
+  .about_btn {
+    font-size: 14px;
+  }
 }
 </style>

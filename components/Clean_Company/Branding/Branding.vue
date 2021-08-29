@@ -182,4 +182,23 @@ export default {
     text-align: left;
   }
 }
+
+@media (max-width: 450px) {
+  .brand_title {
+    font-size: 20px;
+  }
+
+  .brand_description {
+    font-size: 14px;
+  }
+  .tip span {
+    width: 25px;
+    height: 25px;
+  }
+
+  .tip_description,
+  .tip {
+    font-size: 13px;
+  }
+}
 </style>

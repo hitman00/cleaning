@@ -155,4 +155,19 @@ export default {
     margin-bottom: 4%;
   }
 }
+
+@media (max-width: 450px) {
+  .tag,
+  .services_description {
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .services_title {
+    font-size: 15px;
+  }
+}
 </style>

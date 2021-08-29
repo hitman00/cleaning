@@ -98,6 +98,7 @@ export default {
   max-width: 1230px;
   margin: 0 auto;
   display: flex;
+  padding: 0 2%;
 }
 
 .share_link {
@@ -259,6 +260,13 @@ export default {
   .context_title {
     margin: 9% 0;
     font-size: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .description,
+  .copy_right {
+    font-size: 14px;
   }
 }
 </style>
