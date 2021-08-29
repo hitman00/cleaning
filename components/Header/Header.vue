@@ -26,7 +26,6 @@ export default {
 
 <style lang="scss" module>
 .header_main {
-  width: 100%;
   background: #eceef0;
   padding: 0 1%;
 }
