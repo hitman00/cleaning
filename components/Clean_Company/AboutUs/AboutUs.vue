@@ -17,26 +17,49 @@
       </div>
     </div>
     <div :class="$style.about_box">
-      <div :class="$style.about_image">
+      <div
+        v-observe-visibility="{
+          callback: visibilityChanged,
+          throttle: 500,
+        }"
+        :class="$style.about_image"
+      >
         <span :class="$style.cycle1"></span>
         <span :class="$style.cycle2"></span>
         <span :class="$style.cycle3"><span></span></span>
         <img
+          :class="show ? $style.active : ''"
           src="@/assets/imgs/women_jon.png"
-          style="width: 58.79%; right: 0; margin-top: 26%"
+          style="width: 58.79%; right: 0; transition-delay: 1s; margin-top: 26%"
         />
         <img
+          :class="show ? $style.active : ''"
           src="@/assets/imgs/karpet.png"
           style="margin: 43% -12%; width: 48%"
         />
-        <img src="@/assets/imgs/men.png" style="margin: 0% 9%; width: 36.1%" />
+        <img
+          :class="show ? $style.active : ''"
+          src="@/assets/imgs/men.png"
+          style="transition-delay: 0.5s; margin: 0% 9%; width: 36.1%"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data: () => ({
+    show: false,
+  }),
+  methods: {
+    visibilityChanged(isVisible) {
+      if (isVisible) {
+        this.show = true
+      }
+    },
+  },
+}
 </script>
 
 <style lang="scss" module>
@@ -87,6 +110,13 @@ export default {}
   img {
     position: absolute;
     border-radius: 50%;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: scale(0);
+    &.active {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
   span {
     display: block;

@@ -1,16 +1,33 @@
 <template>
   <div :class="$style.branding_main">
-    <div :class="$style.brands_box">
+    <div
+      v-observe-visibility="{
+        callback: visibilityChanged,
+        throttle: 500,
+      }"
+      :class="[$style.brands_box, show ? $style.active : '']"
+    >
       <div :class="$style.images">
-        <img src="@/assets/imgs/women_cleaner3.png" style="margin-top: 50%" />
-        <img src="@/assets/imgs/women_cleaner.png" style="margin: 0 34%" />
         <img
+          :class="show ? $style.image_active : ''"
+          src="@/assets/imgs/women_cleaner3.png"
+          style="margin-top: 50%; transform: translateX(300px)"
+        />
+        <!-- prettier-ignore-attribute -->
+        <img
+          :class="show ? $style.image_active : ''"
+          src="@/assets/imgs/women_cleaner.png"
+          style="transform: translateY(-400px);transition-delay: 0.5s;margin: 0 34% 0;"
+        />
+        <!-- prettier-ignore-attribute -->
+        <img
+          :class="show ? $style.image_active : ''"
           src="@/assets/imgs/women_cleaner2.png"
-          style="margin: 53% 0 0 66%"
+          style="transform: translateX(-400px);transition-delay: 1s;margin: 53% 0 0 66%;"
         />
       </div>
     </div>
-    <div :class="$style.brands_box">
+    <div :class="[$style.brands_box, show ? $style.active : '']">
       <div :class="$style.fix_size">
         <div :class="$style.brand_title">
           Demonstrate branding to, consequently
@@ -38,6 +55,7 @@
 export default {
   name: 'Branding',
   data: () => ({
+    show: false,
     imags: [
       require('@/assets/imgs/women_cleaner3.png'),
       require('@/assets/imgs/women_cleaner.png'),
@@ -65,6 +83,13 @@ export default {
       },
     ],
   }),
+  methods: {
+    visibilityChanged(isVisible) {
+      if (isVisible) {
+        this.show = true
+      }
+    },
+  },
 }
 </script>
 
@@ -88,9 +113,15 @@ export default {
     width: 100%;
     border-radius: 10px;
     position: absolute;
+    transition: all 0.4s ease;
+    opacity: 0;
+    &.image_active {
+      opacity: 1;
+      transform: translateX(0px) !important;
+      transform: translateY(0px) !important;
+    }
   }
 }
-
 .fix_size {
   margin-left: 24%;
 }

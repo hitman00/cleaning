@@ -4,7 +4,15 @@
       <div :class="$style.testimonials_tag">TESTIMONIALS</div>
       <div :class="$style.testimonials_title">Our happy clients</div>
       <div :class="$style.boxs">
-        <div v-for="(i, id) in list" :key="id" :class="$style.comment_box">
+        <div
+          v-for="(i, id) in list"
+          :key="id"
+          v-observe-visibility="{
+            callback: (e) => visibilityChanged(e, id),
+            throttle: 500 * id + 1,
+          }"
+          :class="[$style.comment_box, i.show ? $style.active : '']"
+        >
           <div :class="$style.stars">
             <Stars :full="i.star" />
           </div>
@@ -42,6 +50,7 @@ export default {
             '"Lorem ipsum dolor sit amet consect adipisicing elit. Voluptates, aut natus suscipit iusto, ab quas, quidem architecto autem ea quod neque vitae. Odio aliquam sequi voluptatem eos suscipit obcaecati mollitia?"',
           name: 'Bill Campbell',
           img: require('@/assets/imgs/avatar.png'),
+          show: false,
         },
         {
           star: 4,
@@ -49,6 +58,7 @@ export default {
             '"Lorem ipsum dolor sit amet consect adipisicing elit. Voluptates, aut natus suscipit iusto, ab quas, quidem architecto autem ea quod neque vitae. Odio aliquam sequi voluptatem eos suscipit obcaecati mollitia?"',
           name: 'Sam Hunter',
           img: require('@/assets/imgs/avatar.png'),
+          show: false,
         },
         {
           star: 5,
@@ -56,9 +66,17 @@ export default {
             '"Lorem ipsum dolor sit amet consect adipisicing elit. Voluptates, aut natus suscipit iusto, ab quas, quidem architecto autem ea quod neque vitae. Odio aliquam sequi voluptatem eos suscipit obcaecati mollitia?"',
           name: 'Tommy Williams',
           img: require('@/assets/imgs/avatar.png'),
+          show: false,
         },
       ],
     }
+  },
+  methods: {
+    visibilityChanged(isVisible, id) {
+      if (isVisible) {
+        this.list[id].show = true
+      }
+    },
   },
 }
 </script>
@@ -103,6 +121,12 @@ export default {
   border-radius: 5px;
   box-shadow: 1px 3px 5px #d0d0d0;
   padding: 3.2%;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transition-delay: 0.5s;
+  &.active {
+    opacity: 1;
+  }
 }
 .stars {
   width: 33%;

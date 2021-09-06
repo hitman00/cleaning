@@ -23,6 +23,11 @@
 <script>
 export default {
   name: 'Slider',
+  data() {
+    return {
+      show: false,
+    }
+  },
 }
 </script>
 

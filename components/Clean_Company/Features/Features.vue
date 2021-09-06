@@ -1,6 +1,12 @@
 <template>
   <div :class="$style.features_main">
-    <div :class="$style.customer">
+    <div
+      v-observe-visibility="{
+        callback: visibilityChanged,
+        throttle: 500,
+      }"
+      :class="[$style.customer, show ? $style.active : '']"
+    >
       <div :class="$style.hand">
         <img src="@/assets/imgs/arrow.png" />
       </div>
@@ -12,21 +18,22 @@
       </div>
       <div :class="$style.customer_btn">Book a Clean</div>
     </div>
-    <div :class="$style.customer">
+    <div :class="[$style.customer, show ? $style.active : '']">
       <div :class="$style.box">
         <ul>
           <li style="background: #eaf7ee; color: #47a06b">
-            4.9*<span>Average Rating</span>
+            {{ avrage }}*<span>Average Rating</span>
           </li>
-          <li>124<span>Our Cleaners</span></li>
+          <li>{{ num }}<span>Our Cleaners</span></li>
         </ul>
         <ul style="margin-top: 10%">
-          <li>56%<span>Success Rate</span></li>
+          <li>{{ persent }}%<span>Success Rate</span></li>
           <li style="background: #31ad61; color: #fff">
-            $20<span>Avg Price Tag</span>
+            ${{ dollar }}<span>Avg Price Tag</span>
           </li>
         </ul>
       </div>
+      <!-- {{ test() }} -->
     </div>
   </div>
 </template>
@@ -34,6 +41,61 @@
 <script>
 export default {
   name: 'Features',
+  data() {
+    return {
+      persent: 0,
+      dollar: 0,
+      num: 0,
+      avrage: 0.1,
+      show: false,
+      a: '',
+    }
+  },
+  mounted() {
+    const number = setInterval(() => {
+      this.num++
+      if (this.num > 123) {
+        clearInterval(number)
+      }
+    }, 50)
+    const avg = setInterval(() => {
+      this.avrage = ((this.avrage * 10 + 0.1 * 10) / 10).toFixed(1)
+      console.log(this.avrage)
+      if (this.avrage >= 4.9) {
+        clearInterval(avg)
+      }
+    }, 50)
+    const per = setInterval(() => {
+      this.persent++
+      if (this.persent >= 56) {
+        clearInterval(per)
+      }
+    }, 50)
+    const money = setInterval(() => {
+      this.dollar++
+      if (this.dollar >= 20) {
+        clearInterval(money)
+      }
+    }, 50)
+  },
+  methods: {
+    visibilityChanged(isVisible) {
+      if (isVisible) {
+        this.show = true
+      }
+    },
+    // test() {
+    //   let a = 0
+    //   if (this.show) {
+    //     const money = setInterval(() => {
+    //       a++
+    //       if (a >= 20) {
+    //         clearInterval(money)
+    //       }
+    //     }, 50)
+    //   }
+    // },
+  },
 }
 </script>
 
@@ -45,23 +107,35 @@ export default {
 
 .customer {
   width: 45%;
+  opacity: 0;
+  transition: all 0.4s ease;
+  transform: translateY(100px);
+  &.active {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 .box {
   display: flex;
   justify-content: end;
+
   ul {
     font-size: 30px;
     margin-left: 7%;
+    width: 27%;
     li {
       border: 1px solid gray;
       border-radius: 5px;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      padding: 28% 13%;
+      padding: 28% 0%;
       margin: 0 -6% 10%;
       span {
         font-size: 14px;
+        width: 100%;
+        text-align: center;
+        display: block;
       }
     }
   }
