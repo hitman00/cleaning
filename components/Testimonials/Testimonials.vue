@@ -9,7 +9,7 @@
           :key="id"
           v-observe-visibility="{
             callback: (e) => visibilityChanged(e, id),
-            throttle: 500 * id + 1,
+            throttle: 500 + id + 1,
           }"
           :class="[$style.comment_box, i.show ? $style.active : '']"
         >

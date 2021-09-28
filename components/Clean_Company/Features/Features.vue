@@ -33,7 +33,6 @@
           </li>
         </ul>
       </div>
-      <!-- {{ test() }} -->
     </div>
   </div>
 </template>
@@ -43,58 +42,74 @@ export default {
   name: 'Features',
   data() {
     return {
-      persent: 0,
-      dollar: 0,
+      persent: '',
+      dollar: '',
       num: 0,
       avrage: 0.1,
       show: false,
-      a: '',
     }
   },
-  mounted() {
-    const number = setInterval(() => {
-      this.num++
-      if (this.num > 123) {
-        clearInterval(number)
-      }
-    }, 50)
-    const avg = setInterval(() => {
-      this.avrage = ((this.avrage * 10 + 0.1 * 10) / 10).toFixed(1)
-      console.log(this.avrage)
-      if (this.avrage >= 4.9) {
-        clearInterval(avg)
-      }
-    }, 50)
-    const per = setInterval(() => {
-      this.persent++
-      if (this.persent >= 56) {
-        clearInterval(per)
-      }
-    }, 50)
-    const money = setInterval(() => {
-      this.dollar++
-      if (this.dollar >= 20) {
-        clearInterval(money)
-      }
-    }, 50)
-  },
+
+  // mounted() {
+  //   const number = setInterval(() => {
+  //     this.num++
+  //     if (this.num > 123) {
+  //       clearInterval(number)
+  //     }
+  //   }, 50)
+  //   const avg = setInterval(() => {
+  //     this.avrage = ((this.avrage * 10 + 0.1 * 10) / 10).toFixed(1)
+  //     console.log(this.avrage)
+  //     if (this.avrage >= 4.9) {
+  //       clearInterval(avg)
+  //     }
+  //   }, 50)
+  //   const per = setInterval(() => {
+  //     this.persent++
+  //     if (this.persent >= 56) {
+  //       clearInterval(per)
+  //     }
+  //   }, 50)
+  //   const money = setInterval(() => {
+  //     this.dollar++
+  //     if (this.dollar >= 20) {
+  //       clearInterval(money)
+  //     }
+  //   }, 50)
+  // },
   methods: {
     visibilityChanged(isVisible) {
       if (isVisible) {
         this.show = true
+        this.test()
       }
     },
-    // test() {
-    //   let a = 0
-    //   if (this.show) {
-    //     const money = setInterval(() => {
-    //       a++
-    //       if (a >= 20) {
-    //         clearInterval(money)
-    //       }
-    //     }, 50)
-    //   }
-    // },
+    test() {
+      const money = setInterval(() => {
+        this.dollar++
+        if (this.dollar >= 20) {
+          clearInterval(money)
+        }
+      }, 100)
+      const per = setInterval(() => {
+        this.persent++
+        if (this.persent >= 56) {
+          clearInterval(per)
+        }
+      }, 50)
+      const number = setInterval(() => {
+        this.num++
+        if (this.num > 123) {
+          clearInterval(number)
+        }
+      }, 30)
+      const avg = setInterval(() => {
+        this.avrage = ((this.avrage * 10 + 0.1 * 10) / 10).toFixed(1)
+        if (this.avrage >= 4.9) {
+          clearInterval(avg)
+        }
+      }, 50)
+    },
   },
 }
 </script>
