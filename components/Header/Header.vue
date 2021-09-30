@@ -53,6 +53,9 @@ export default {
       padding: 1.5% 2%;
       border-radius: 5px;
       transition: all 0.4s ease;
+      a {
+        color: #000;
+      }
       &:hover {
         background: #31ad61;
         color: #fff;
