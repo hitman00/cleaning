@@ -2,15 +2,13 @@
 
 I try to implement this concept design for web.
 
+![Image](https://github.com/hitman00/cleaning/blob/master/assets/imgs/clean.PNG)
+
 ## Link
 
 - [Demo](https://hitman00.github.io/cleaning/)
 - Concept page: [Dribbble page](https://dribbble.com/shots/15950344-M-Cleaning-Company-Landing-Page-Design)
 - Images: [Google](https://google.com) - [Dribbble](https://dribbble.com/)
-
-## Images
-
- ![Image](https://github.com/hitman00/cleaning/blob/master/assets/imgs/clean.PNG)
 
 ## Technologies
 
