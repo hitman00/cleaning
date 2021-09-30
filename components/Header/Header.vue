@@ -11,7 +11,7 @@
           <li>Cleaning Services</li>
           <li>Prices</li>
           <li>Blog</li>
-          <li>Book Now</li>
+          <li><a href="https://hitman00.github.io/cleaning/">Github</a></li>
         </ul>
       </div>
     </div>
